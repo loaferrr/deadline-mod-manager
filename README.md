@@ -7,9 +7,17 @@ mod repository & manager for deadline
 ![img2](https://raw.githubusercontent.com/loaferrr/deadline-mod-manager/refs/heads/main/readme/repopage.png)
 
 # server luau console
-copy this and run it in the server luau console
+### copy this and run it in the server luau console
 ```lua
 set_require_domain("https://raw.githubusercontent.com/loaferrr/deadline-mod-manager/refs/heads/main/") require("main.luau")
+```
+## shared.modmanager
+commands/functions, idk.
+
+more will get added hopefully
+```lua
+shared.modmanager.loadmod("test mod") --exact name of the mod to load
+shared.modmanager.list() --lists mods in repo
 ```
 
 # mod example

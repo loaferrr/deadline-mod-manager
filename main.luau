@@ -14,7 +14,15 @@ for id, modname in ipairs(modregistry) do
         mod
     )
     mod.id = id
-    print("loaded", mod.name)
+    print("added", mod.name, "to modrepo")
+end
+
+function loadmod(id)
+    for _, mod in ipairs(modrepo) do
+        if mod.id == id then
+            load_modfile(mod.modfile)
+        end
+    end
 end
 
 --// api i guess
@@ -42,7 +50,7 @@ on_client_event:Connect(function(player, args)
     if args[1] == "loadmod" and player == sharedvars.vip_owner then
         for _, mod in ipairs(modrepo) do
             if mod.id == args[2] then
-                load_modfile(mod.modfile)
+                loadmod(id)
             end
         end
     end
@@ -59,8 +67,18 @@ end)
 
 --TODO: please turn these into separate functions for the api & this shi 
 shared.modmanager = {
-    loadmod = function()
-        
+    loadmod = function(name)
+        for _, mod in ipairs(modrepo) do
+            if string.match(mod.name, name) then
+                loadmod(mod.id)
+            end
+        end
+    end;
+    list = function()
+        print("mod list:")
+        for _, mod in modrepo do
+            print(`  "{mod.name}" by "{mod.author}" id = {mod.id};`)
+        end
     end;
 }
 
