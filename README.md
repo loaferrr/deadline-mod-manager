@@ -12,7 +12,8 @@ set_require_domain("https://raw.githubusercontent.com/loaferrr/deadline-mod-mana
 # mod example
 ```lua
 return {
-    --an id is added here from main.luau
+    id = nil; --value gets replaced. keep it as nil
+
     name = "example"; --obvious
     author = "author"; --also obvious
 
@@ -33,7 +34,7 @@ return {
     --the packaged string 
     --you get from the deadline modding plugin
     --load_modfile('QWERTYUIOPASDFGHJKLZXCVBNM')
-    --put the string ('QWERTYUIO...') thats inside of load_modfile in modfile
+    --put the string (example: 'QWERTYUIO...') thats inside of load_modfile in modfile
 }
 ```
-pull request if you want your mod in the repotest for some reason?
+if you want your mod in the repotest for some reason submit a pull request

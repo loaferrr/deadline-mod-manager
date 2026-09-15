@@ -1,4 +1,6 @@
 return {
+    id = nil;
+    
     name = "test mod";
     author = "laof"; --obvious
     --richtext support
