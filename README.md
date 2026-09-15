@@ -1,10 +1,10 @@
 # deadline-mod-manager
 mod repository & manager for deadline
 
-# client gui for vip server owner will be added
-https://raw.githubusercontent.com/loaferrr/deadline-mod-manager/refs/heads/main/readme/modpage.png
+## client gui for vip server owner will be added
+![img1](https://raw.githubusercontent.com/loaferrr/deadline-mod-manager/refs/heads/main/readme/modpage.png)
 
-https://raw.githubusercontent.com/loaferrr/deadline-mod-manager/refs/heads/main/readme/modpage.png
+![img2](https://raw.githubusercontent.com/loaferrr/deadline-mod-manager/refs/heads/main/readme/repopage.png)
 
 # server luau console
 copy this and run it in the server luau console
