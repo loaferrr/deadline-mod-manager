@@ -2,22 +2,18 @@
 set_require_domain("https://raw.githubusercontent.com/loaferrr/deadline-mod-manager/refs/heads/main/")
 
 local repopath = "repotest/"
-local modregistry = require("modregistry.luau")
+local modregistry = require("modregistry.luau") --string array
 
 local modrepo = {}
 
-for _, mod in ipairs(modregistry) do
+for id, mod in ipairs(modregistry) do
     table.insert(
         modrepo,
         require(`{repopath}/{mod}`)
     )
+    mod.id = id
+    print("loaded", mod.name)
 end
-
-task.delay(2, function()
-    for _, mod in ipairs(modrepo) do
-        print("loaded", mod.name)
-    end
-end)
 
 --// api i guess
 on_client_event:Connect(function(player, args)
@@ -41,14 +37,30 @@ on_client_event:Connect(function(player, args)
             players.get(player).fire_client({modrepo})
         end
     end
-    if args[1] == "loadmod" then --extremely unprotected
+    if args[1] == "loadmod" and player == sharedvars.vip_owner then
         for _, mod in ipairs(modrepo) do
-            if mod.name == args[2] then
+            if mod.id == args[2] then
                 load_modfile(mod.modfile)
             end
         end
     end
+    if args[1] == "loadmap" and player == sharedvars.vip_owner then
+        if typeof(args[2]) ~= "string" then
+            print("son")
+            return
+        end
+        map.set_map(args[2])
+    end
 end)
+
+--// server console commands
+
+--TODO: please turn these into separate functions for the api & this shi 
+shared.modmanager = {
+    loadmod = function()
+        
+    end;
+}
 
 
 --[[
