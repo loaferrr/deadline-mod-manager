@@ -6,7 +6,7 @@ client gui for vip server owner will be added
 # server luau console
 copy this and run it in the server luau console
 ```lua
-set_require_domain("https://raw.githubusercontent.com/loaferrr/deadline-mod-manager/refs/heads/main/") require(main.luau)
+set_require_domain("https://raw.githubusercontent.com/loaferrr/deadline-mod-manager/refs/heads/main/") require("main.luau")
 ```
 
 # mod example
@@ -15,7 +15,7 @@ return {
     --an id is added here from main.luau
     name = "example"; --obvious
     author = "author"; --also obvious
-    
+
     --richtext support for description
     description = [[supports rich text. for example: <i><font color="#10d2d5">test</font></i>]];
     categories = {
