@@ -6,10 +6,12 @@ local modregistry = require("modregistry.luau") --string array
 
 local modrepo = {}
 
-for id, mod in ipairs(modregistry) do
+for id, modname in ipairs(modregistry) do
+    local path = `{repopath}/{modname}`
+    local mod = require(path)
     table.insert(
         modrepo,
-        require(`{repopath}/{mod}`)
+        mod
     )
     mod.id = id
     print("loaded", mod.name)
